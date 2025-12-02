@@ -1,6 +1,6 @@
 abstract class Person {
-    protected String name;
-    protected String email;
+    private String name;
+    private String email;
 
     public Person() {
         this.name = "Default Name";
@@ -12,6 +12,22 @@ abstract class Person {
         this.email = email;
     }
 
-    // Abstract method
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+   
     public abstract void displayDetails();
 }

@@ -20,8 +20,8 @@ class Student extends Person {
     @Override
     public void displayDetails() {
         System.out.println("\n--- Student Details ---");
-        System.out.println("Name: " + name);
-        System.out.println("Email: " + email);
+        System.out.println("Name: " + getName());
+        System.out.println("Email: " + getEmail());
 
         if (borrowedBooks.isEmpty()) {
             System.out.println("No borrowed books.");
