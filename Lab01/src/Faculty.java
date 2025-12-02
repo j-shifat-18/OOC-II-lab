@@ -1,22 +1,36 @@
-public class Faculty extends Person{
-    
+import java.util.ArrayList;
+import java.util.List;
 
-    Faculty(String name , String email){
+class Faculty extends Person {
+    private List<Book> borrowedBooks = new ArrayList<>();
+
+    public Faculty() {
+        super("Default Faculty", "faculty@default.com");
+    }
+
+ 
+    public Faculty(String name, String email) {
         super(name, email);
     }
 
-    Faculty() {
-        super();
+    public void borrowBook(Book b) {
+        borrowedBooks.add(b);
+        Book.totalBooksIssued++;
     }
 
     @Override
-    void displayDetails() {
-        System.out.println("\n---- Faculty Details ----");
-        System.out.println("Name  : " + getName());
-        System.out.println("Email : " + getEmail());
-        System.out.println("Borrowed Books:");
-        for (Book b : borrowedBooks) {
-            b.displayBookDetails();
+    public void displayDetails() {
+        System.out.println("\n--- Faculty Details ---");
+        System.out.println("Name: " + name);
+        System.out.println("Email: " + email);
+
+        if (borrowedBooks.isEmpty()) {
+            System.out.println("No borrowed books.");
+        } else {
+            System.out.println("Borrowed Books:");
+            for (Book b : borrowedBooks) {
+                b.displayInfo();
+            }
         }
     }
 }

@@ -1,22 +1,35 @@
-public class Student extends Person {
- 
+import java.util.ArrayList;
+import java.util.List;
 
-    Student(String name , String email ){
+class Student extends Person {
+    private List<Book> borrowedBooks = new ArrayList<>();
+
+    public Student() {
+        super("Default Student", "student@default.com");
+    }
+
+    public Student(String name, String email) {
         super(name, email);
-     
     }
 
-    Student(){
-        super();
+    public void borrowBook(Book b) {
+        borrowedBooks.add(b);
+        Book.totalBooksIssued++; // increment static count
     }
 
-    void displayDetails() {
-        System.out.println("\n---- Student Details ----");
-        System.out.println("Name  : " + getName());
-        System.out.println("Email : " + getEmail());
-        System.out.println("Borrowed Books:");
-        for (Book b : borrowedBooks) {
-            b.displayBookDetails();
+    @Override
+    public void displayDetails() {
+        System.out.println("\n--- Student Details ---");
+        System.out.println("Name: " + name);
+        System.out.println("Email: " + email);
+
+        if (borrowedBooks.isEmpty()) {
+            System.out.println("No borrowed books.");
+        } else {
+            System.out.println("Borrowed Books:");
+            for (Book b : borrowedBooks) {
+                b.displayInfo();
+            }
         }
     }
 }
