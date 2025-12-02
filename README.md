@@ -17,5 +17,5 @@
 
 ## 📦 Class Diagram (UML)
 
-![UML Diagram](assets/uml.jpg)
+![UML Diagram](/asset/uml.jpg)
 
